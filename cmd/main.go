@@ -58,8 +58,6 @@ func getBrasilApiAddressInfo(cep string, chanel chan AddressData) {
 }
 
 func getViaCepAddressInfo(cep string, chanel chan AddressData) {
-	time.Sleep(20 * time.Second)
-
 	req, _ := http.Get(baseUriViaCep + cep + "/json")
 	defer req.Body.Close()
 	res, _ := io.ReadAll(req.Body)
